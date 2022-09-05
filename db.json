@@ -257,10 +257,7 @@
       "email": "john@gmail.com",
       "username": "johnd",
       "password": "m38rmF$",
-      "name": {
-        "firstname": "john",
-        "lastname": "doe"
-      },
+      "name": "john doe",
       "phone": "1-570-236-7033",
       "__v": 0
     },
@@ -279,10 +276,7 @@
       "email": "morrison@gmail.com",
       "username": "mor_2314",
       "password": "83r5^_",
-      "name": {
-        "firstname": "david",
-        "lastname": "morrison"
-      },
+      "name": "david morrison",
       "phone": "1-570-236-7033",
       "__v": 0
     },
@@ -301,10 +295,7 @@
       "email": "kevin@gmail.com",
       "username": "kevinryan",
       "password": "kev02937@",
-      "name": {
-        "firstname": "kevin",
-        "lastname": "ryan"
-      },
+      "name": "kevin ryan",
       "phone": "1-567-094-1345",
       "__v": 0
     },
@@ -323,10 +314,7 @@
       "email": "don@gmail.com",
       "username": "donero",
       "password": "ewedon",
-      "name": {
-        "firstname": "don",
-        "lastname": "romer"
-      },
+      "name": "don romer",
       "phone": "1-765-789-6734",
       "__v": 0
     },
@@ -345,10 +333,7 @@
       "email": "derek@gmail.com",
       "username": "derek",
       "password": "jklg*_56",
-      "name": {
-        "firstname": "derek",
-        "lastname": "powell"
-      },
+      "name": "derek powell",
       "phone": "1-956-001-1945",
       "__v": 0
     },
@@ -367,10 +352,7 @@
       "email": "david_r@gmail.com",
       "username": "david_r",
       "password": "3478*#54",
-      "name": {
-        "firstname": "david",
-        "lastname": "russell"
-      },
+      "name": "david russell",
       "phone": "1-678-345-9856",
       "__v": 0
     },
@@ -389,10 +371,7 @@
       "email": "miriam@gmail.com",
       "username": "snyder",
       "password": "f238&@*$",
-      "name": {
-        "firstname": "miriam",
-        "lastname": "snyder"
-      },
+      "name": "miriam snyder",
       "phone": "1-123-943-0563",
       "__v": 0
     },
@@ -411,10 +390,7 @@
       "email": "william@gmail.com",
       "username": "hopkins",
       "password": "William56$hj",
-      "name": {
-        "firstname": "william",
-        "lastname": "hopkins"
-      },
+      "name": "william hopkins",
       "phone": "1-478-001-0890",
       "__v": 0
     },
@@ -433,10 +409,7 @@
       "email": "kate@gmail.com",
       "username": "kate_h",
       "password": "kfejk@*_",
-      "name": {
-        "firstname": "kate",
-        "lastname": "hale"
-      },
+      "name": "kate hale",
       "phone": "1-678-456-1934",
       "__v": 0
     },
@@ -455,10 +428,7 @@
       "email": "jimmie@gmail.com",
       "username": "jimmie_k",
       "password": "klein*#%*",
-      "name": {
-        "firstname": "jimmie",
-        "lastname": "klein"
-      },
+      "name": "jimmie klein",
       "phone": "1-104-001-4567",
       "__v": 0
     }
