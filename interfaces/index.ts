@@ -1,3 +1,4 @@
 import ProductInterface from "./Product";
+import UserInterface from "./User";
 
-export type { ProductInterface };
+export type { ProductInterface, UserInterface };
