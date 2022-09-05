@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { ProductInterface } from "../interfaces";
+import { ProductInterface } from "interfaces";
 
 type ProductContextProviderProps = {
   children: React.ReactNode;
@@ -12,24 +12,24 @@ type ProductsContextValue = {
 const ProductsContext = createContext<ProductsContextValue>({});
 
 export function ProductsContextProvider({
-  children,
+  children
 }: ProductContextProviderProps) {
   const [products, setProducts] = useState<Array<ProductInterface>>([]);
 
-  useEffect(() => {
-    //TODO: Fix fetching
-    async function fetchProducts() {
-      try {
-        const response = await fetch("db.json");
-        console.log(response);
-        const data = await response.json();
-        setProducts(data);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    fetchProducts();
-  }, []);
+  // useEffect(() => {
+  //   //TODO: Fix fetching and add REDUX
+  //   async function fetchProducts() {
+  //     try {
+  //       const response = await fetch("db.json");
+  //       console.log(response);
+  //       const data = await response.json();
+  //       setProducts(data);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   }
+  //   fetchProducts();
+  // }, []);
 
   const productsContextValue: ProductsContextValue = { products };
 
