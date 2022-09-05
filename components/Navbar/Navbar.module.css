@@ -1,0 +1,6 @@
+.navbar ul {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  font-weight: 600;
+}

@@ -1,6 +1,6 @@
-import { ProductInterface } from "../interfaces";
-import { Product as ProductComponent } from "../components";
-import { useProductsContext } from "../context/Products";
+import { ProductInterface } from "interfaces";
+import { Product } from "components";
+import { useProductsContext } from "context/Products";
 
 type Props = {};
 
@@ -11,7 +11,7 @@ function ProductsList({}: Props) {
     <ul>
       {products &&
         products.map((product: ProductInterface) => (
-          <ProductComponent key={product.id} {...product} />
+          <Product key={product.id} {...product} />
         ))}
     </ul>
   );

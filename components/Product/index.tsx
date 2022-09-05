@@ -1,4 +1,4 @@
-import { ProductInterface } from "../interfaces";
+import { ProductInterface } from "interfaces";
 
 function Product({
   id,
@@ -7,7 +7,7 @@ function Product({
   image,
   price,
   rating,
-  title,
+  title
 }: ProductInterface) {
   return <li></li>;
 }
