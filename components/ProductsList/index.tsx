@@ -1,14 +1,15 @@
 import { ProductInterface } from "interfaces";
 import { Product } from "components";
-import { useProductsContext } from "context/Products";
 
-type Props = {};
+import style from "./ProductList.module.css";
 
-function ProductsList({}: Props) {
-  const { products } = useProductsContext();
+type Props = {
+  products: Array<ProductInterface>;
+};
 
+function ProductsList({ products }: Props) {
   return (
-    <ul>
+    <ul className={style.productsListContainer}>
       {products &&
         products.map((product: ProductInterface) => (
           <Product key={product.id} {...product} />
