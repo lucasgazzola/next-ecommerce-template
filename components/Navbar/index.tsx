@@ -12,8 +12,8 @@ function Navbar({}: Props) {
           </Link>
         </li>
         <li>
-          <Link href="/shop">
-            <a>Shop</a>
+          <Link href="/products">
+            <a>Products</a>
           </Link>
         </li>
         <li>
