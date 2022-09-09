@@ -1,15 +1,23 @@
-import Navbar from "components/Navbar";
+import Link from "next/link";
+
+import { ShoppingCart, LoginButton, Navbar } from "components";
+import { useScrollPosition } from "hooks";
+
 import style from "./Header.module.css";
-import { ShoppingCart, LoginButton } from "components";
 
 type Props = {};
 
 function Header({}: Props) {
+  const { headerTop: top } = useScrollPosition();
   const isLoggedIn = true;
 
   return (
-    <header className={style.header}>
-      <div>Logo</div>
+    <header style={{ top }} className={style.header}>
+      <Link href="/">
+        <a>
+          <div>👔👖👗💎</div>
+        </a>
+      </Link>
       <Navbar />
       {!isLoggedIn ? <LoginButton /> : <ShoppingCart />}
     </header>
