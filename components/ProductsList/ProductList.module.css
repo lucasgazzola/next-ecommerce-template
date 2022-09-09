@@ -1,0 +1,15 @@
+.productsListContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  place-items: center;
+  gap: 24px;
+}
+
+.descriptionContainer {
+  display: inline-flex;
+}
+
+.descContainer {
+  font-size: 80px;
+}

@@ -1,9 +1,13 @@
 .header {
+  visibility: visible;
+  position: fixed;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 24px;
-  background-color: #222;
+  background-color: #222222f8;
   font-size: 18px;
+  z-index: 1000000000;
+  padding: 12px 24px;
+  height: 5rem;
 }
