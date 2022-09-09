@@ -12,7 +12,7 @@ function PageLayout({ children, title }: Props) {
   return (
     <div className={style.pageLayout}>
       <Head>
-        <title>{title ? title : "Ecommerce Template"}</title>
+        <title>{title ? title : `Ecommerce Template - ${title}`}</title>
       </Head>
       <Header />
       <ProductsContextProvider>
