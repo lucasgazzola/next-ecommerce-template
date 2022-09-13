@@ -9,6 +9,7 @@
 - Next.js
 - React Hooks (useState, useContext, useEffect)
 - TypeScript
+- PostgreSQL
 - Prisma
 - Redux
 - [Fake Store API](https://fakestoreapi.com/)
