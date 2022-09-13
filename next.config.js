@@ -2,7 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  images: { domains: ["fakestoreapi.com"] }
+  images: { domains: ["fakestoreapi.com"] },
+  output: "standalone"
 };
 
 module.exports = nextConfig;
