@@ -13,7 +13,6 @@ datasource db {
 // ? https://www.convertjson.com/json-to-sql.htm --> CONVERT JSON TO SQL 
 
 model Product {
-  // TODO? POPULATE
   id          Int     @id @default(autoincrement())
   title       String
   price       Float
