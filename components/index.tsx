@@ -5,6 +5,9 @@ import Navbar from "./Navbar";
 import ProductsList from "./ProductsList";
 import ShoppingCart from "./ShoppingCart";
 import LoginButton from "./LoginButton";
+import NavLinksContainer from "./NavLinksContainer";
+import HamburgerMenu from "./HamburgerMenu";
+import MenuContainer from "./MenuContainer";
 
 export {
   Footer,
@@ -13,5 +16,8 @@ export {
   ProductsList,
   ShoppingCart,
   LoginButton,
-  Navbar
+  Navbar,
+  NavLinksContainer,
+  HamburgerMenu,
+  MenuContainer
 };
