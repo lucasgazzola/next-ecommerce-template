@@ -13,7 +13,13 @@ function Product({ id, image, price, rating, title }: ProductInterface) {
             <h3>{title}</h3>
           </header>
           <div className={style.imageContainer}>
-            <Image alt={title} src={image} layout="fill" objectFit="contain" />
+            <Image
+              priority
+              alt={title}
+              src={image}
+              layout="fill"
+              objectFit="contain"
+            />
           </div>
           <footer>
             <p className={style.descriptionContainer}>
