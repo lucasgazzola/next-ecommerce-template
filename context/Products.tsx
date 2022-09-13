@@ -17,7 +17,7 @@ export function ProductsContextProvider({
   const [products, setProducts] = useState<Array<ProductInterface>>([]);
 
   // useEffect(() => {
-  //   //TODO: Fix fetching and add REDUX
+  //
   //   async function fetchProducts() {
   //     try {
   //       const response = await fetch("db.json");
