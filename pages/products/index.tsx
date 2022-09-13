@@ -3,7 +3,6 @@ import { ProductsList } from "components";
 import { PageLayout } from "layouts";
 import { ProductInterface } from "interfaces";
 
-// TODO: replace db.json
 import data from "db.json";
 
 type ProductsPageProps = {
