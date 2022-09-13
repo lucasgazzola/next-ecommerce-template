@@ -6,43 +6,144 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
+// ? https://www.convertjson.com/json-to-sql.htm --> CONVERT JSON TO SQL 
+
 model Product {
-  id          Int    @id @default(autoincrement())
+  // TODO? POPULATE
+  id          Int     @id @default(autoincrement())
   title       String
   price       Float
   description String
-  category    String
+  image       Bytes[]
+  stock       Int     @default(0)
+  rating      Float   @default(0)
+  cantVotos   Int     @default(0)
+
+  color   Color @relation(fields: [colorId], references: [id])
+  colorId Int
+
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId Int
+
+  orderDetails OrderDetails[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model Color {
+  // ! Populated
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  hex   String
+  red   Int
+  green Int
+  blue  Int
+
+  product Product[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model Category {
+  // ! Populated
+  id          Int     @id @default(autoincrement())
+  name        String  @unique
+  description String?
+
+  product Product[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model Country {
+  // ! Populated
+  id   Int    @id @default(autoincrement())
+  name String
+
+  shippingAdress ShippingAdress[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model ShippingAdress {
+  id    Int    @id @default(autoincrement())
+  city  String
+  state String
+
+  country   Country @relation(fields: [countryId], references: [id])
+  countryId Int
+
+  order Order[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+  User      User?    @relation(fields: [userId], references: [id])
+  userId    Int?
 }
 
 model User {
   id       Int     @id @default(autoincrement())
-  email    String
-  username String
+  username String  @unique
   password String
-  name     String
-  phone    String
-  adress   Adress?
+  fullName String
+  isAdmin  Boolean @default(false)
+
+  shippingAdress ShippingAdress[]
+
+  order Order[]
+
+  updatedAt DateTime @default(now()) @updatedAt
+  createdAt DateTime @default(now())
 }
 
-model Adress {
-  id          Int          @id @default(autoincrement())
-  geolocation Geolocation?
-  city        String
-  number      Int
-  street      String
-  zipcode     String
-  user        User         @relation(fields: [userId], references: [id])
-  userId      Int          @unique
+model Status {
+  id          Int     @id @default(autoincrement())
+  name        String  @unique
+  description String?
+
+  order Order[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
 }
 
-model Geolocation {
-  id       Int    @id @default(autoincrement())
-  lat      String
-  long     String
-  adress   Adress @relation(fields: [adressId], references: [id])
-  adressId Int    @unique
+model Order {
+  id      Int   @id @default(autoincrement())
+  ammount Float
+
+  user   User @relation(fields: [userId], references: [id])
+  userId Int
+
+  status   Status @relation(fields: [statusId], references: [id])
+  statusId Int
+
+  shippingAdress   ShippingAdress @relation(fields: [shippingAdressId], references: [id])
+  shippingAdressId Int
+
+  orderDetails OrderDetails[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model OrderDetails {
+  id       Int   @id @default(autoincrement())
+  quantity Float
+
+  order   Order @relation(fields: [orderId], references: [id])
+  orderId Int
+
+  product   Product @relation(fields: [productId], references: [id])
+  productId Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
 }
