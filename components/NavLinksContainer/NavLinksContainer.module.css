@@ -1,0 +1,13 @@
+.linkItemContainer {
+  width: 100%;
+  border-radius: 5px;
+  padding: 6px;
+}
+
+.linkItemContainer a {
+  border-radius: 5px;
+}
+
+.linkItemContainer:hover {
+  transform: scale(1.1);
+}

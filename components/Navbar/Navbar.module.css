@@ -1,6 +1,19 @@
-.navbar ul {
+.navbar {
   display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 24px;
+}
+
+.linksContainer {
+  display: flex;
+  position: relative;
+  top: 0;
+  left: 0;
+  flex-wrap: wrap;
   flex-direction: row;
   gap: 12px;
   font-weight: 600;
+  justify-content: center;
+  align-items: center;
 }

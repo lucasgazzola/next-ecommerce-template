@@ -1,0 +1,11 @@
+.menuButtonContainer {
+  display: flex;
+  align-self: center;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.menuButtonContainer:hover {
+  background-color: #fff2;
+  transform: scale(1.1);
+}
