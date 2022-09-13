@@ -1,6 +1,24 @@
 import type { NextPage } from "next";
 import dynamic from "next/dynamic";
 
+// TODO!  https://angloitalian.com/pages/about for reference
+
+// Connected the db         done!
+
+// TODO? Populate DB                          in process
+// TODO: Admin Panel                          in process
+// TODO: Responsive                           in process
+// TODO! handle shopping cart (ADD REDUX)     in process
+
+// TODO: Login and register
+// TODO! Dark-Light Mode (First popurate DB, handle images background)
+// TODO! SET BACKGROUND
+// TODO! HOME PAGE
+// TODO! ABOUT US PAGE
+// TODO! CONTACT PAGE
+// TODO: Logo
+// TODO: Footer
+
 // import { ProductsList } from "components";
 import { PageLayout } from "layouts";
 
@@ -11,8 +29,6 @@ const ProductsList = dynamic(() => import("components/ProductsList"), {
 import style from "styles/Home.module.css";
 
 const Home: NextPage = () => {
-  //TODO: https://angloitalian.com/pages/about for reference
-
   return (
     <PageLayout title="Home">
       <section id="home-section" className={style.home}>
