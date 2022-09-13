@@ -1,3 +1,4 @@
 import PageLayout from "./PageLayout";
+import AdminPageLayout from "./AdminPageLayout";
 
-export { PageLayout };
+export { PageLayout, AdminPageLayout };
