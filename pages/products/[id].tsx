@@ -5,7 +5,6 @@ import Image from "next/image";
 import { IoMdArrowBack } from "react-icons/io";
 import { GrPrevious, GrNext } from "react-icons/gr";
 
-import { PageLayout } from "layouts";
 import { ProductInterface } from "interfaces";
 
 import style from "styles/[id].module.css";
@@ -18,78 +17,74 @@ type Props = {
 };
 
 const Product: NextPage<Props> = ({ product, total }: Props) => {
-  const { title, image, rating, price, description, category } = product;
+  const { title, image, rating, price, description } = product;
   return (
-    <PageLayout title="Shop">
-      <div className={style.singleProductPage}>
-        <Link href="/products">
-          <a>
-            <div className={style.backButtonContainer}>
-              <IoMdArrowBack size={24} />
-              <span className={style.textContainer}>BACK</span>
-            </div>
-          </a>
-        </Link>
-        <div className={style.productContainer}>
-          <header className={style.productContainer}>
-            <span className={style.productTitle}>{title}</span>
-            <span className={style.productCategory}>{category}</span>
-          </header>
-          <main className={style.main}>
-            <div className={style.imageContainer}>
-              <Image
-                priority
-                alt={title}
-                src={image}
-                width={350}
-                height={400}
-                objectFit="contain"
-              />
-            </div>
-            <article className={style.descriptionContainer}>
-              <p className={style.description}>{description}</p>
-            </article>
-          </main>
-          <footer>
-            <p>
-              <span className={style.price}>${price}</span> -{" "}
-              <span className={style.rate}>{rating.rate}⭐</span>
-            </p>
-          </footer>
-        </div>
-        <div className={style.navigationContainer}>
-          {product.id > 1 && (
-            <Link href={`${product.id - 1}`}>
-              <a className={style.prevNextButtons}>
-                <GrPrevious />
-                <span>Previous</span>
-              </a>
-            </Link>
-          )}
-          {product.id < total && (
-            <Link href={`${product.id + 1}`}>
-              <a className={style.prevNextButtons}>
-                <span>Next</span>
-                <GrNext />
-              </a>
-            </Link>
-          )}
-        </div>
+    <div className={style.singleProductPage}>
+      <Link href="/products">
+        <a>
+          <div className={style.backButtonContainer}>
+            <IoMdArrowBack size={24} />
+            <span className={style.textContainer}>BACK</span>
+          </div>
+        </a>
+      </Link>
+      <div className={style.productContainer}>
+        <header className={style.productContainer}>
+          <span className={style.productTitle}>{title}</span>
+          {/* <span className={style.productCategory}>{category}</span> */}
+        </header>
+        <main className={style.main}>
+          <div className={style.imageContainer}>
+            <Image
+              priority
+              alt={title}
+              // TODO! ADD REAL IMG SOURCE
+              src={"https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg"}
+              width={350}
+              height={400}
+              objectFit="contain"
+            />
+          </div>
+          <article className={style.descriptionContainer}>
+            <p className={style.description}>{description}</p>
+          </article>
+        </main>
+        <footer>
+          <p>
+            <span className={style.price}>${price}</span> -{" "}
+            <span className={style.rate}>{rating}⭐</span>
+          </p>
+        </footer>
       </div>
-    </PageLayout>
+      <div className={style.navigationContainer}>
+        {product.id > 1 && (
+          <Link href={`${product.id - 1}`}>
+            <a className={style.prevNextButtons}>
+              <GrPrevious />
+              <span>Previous</span>
+            </a>
+          </Link>
+        )}
+        {product.id < total && (
+          <Link href={`${product.id + 1}`}>
+            <a className={style.prevNextButtons}>
+              <span>Next</span>
+              <GrNext />
+            </a>
+          </Link>
+        )}
+      </div>
+    </div>
   );
 };
 
 export async function getStaticPaths() {
   // const response = await fetch("db.json");
   // const data = await response.json();
-
   const { products } = data;
-
   const paths = products.map((product: ProductInterface) => ({
     params: { id: product.id.toString() }
   }));
-
   return {
     paths,
     fallback: false
@@ -100,11 +95,9 @@ export const getStaticProps: GetStaticProps = async ({
   params
 }: GetStaticPropsContext) => {
   const { products } = data;
-
   const [product] = products.filter(
     (product: ProductInterface) => product.id.toString() === params?.id
   );
-
   return {
     props: { product, total: products.length }
   };

@@ -1,34 +1,40 @@
 import type { NextPage } from "next";
-import { ProductsList } from "components";
-import { PageLayout } from "layouts";
+import dynamic from "next/dynamic";
+
+// import {  } from "components";
 import { ProductInterface } from "interfaces";
 
 import data from "db.json";
 
+const ProductsList = dynamic(() => import("components/ProductsList"), {
+  loading: () => (
+    <ul>
+      <p>Cargando product list...</p>
+    </ul>
+  )
+});
+
 type ProductsPageProps = {
-  products: Array<ProductInterface>;
+  // products: Array<ProductInterface>;
 };
 
-const Products: NextPage<ProductsPageProps> = ({
-  products
-}: ProductsPageProps) => {
+const Products: NextPage<ProductsPageProps> = ({}: ProductsPageProps) => {
+  const { products }: { products: Array<ProductInterface> } = data;
+
   return (
-    <PageLayout title="Products">
-      <section id="products-section">
-        <ProductsList products={products} />
-      </section>
-    </PageLayout>
+    <section id="products-section">
+      <ProductsList products={products} />
+    </section>
   );
 };
 
-export async function getStaticProps() {
-  const { products }: { products: Array<ProductInterface> } = data;
+// export async function getStaticProps() {
 
-  return {
-    props: {
-      products
-    }
-  };
-}
+//   return {
+//     props: {
+//       products
+//     }
+//   };
+// }
 
 export default Products;
