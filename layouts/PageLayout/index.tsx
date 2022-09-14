@@ -1,10 +1,9 @@
-import { Provider } from "react-redux";
 import Head from "next/head";
-
-import { Footer, Header } from "components";
-
+import { Provider } from "react-redux";
 import { store } from "redux/store";
+
 import { ProductsContextProvider } from "context/Products";
+import { Header, Footer } from "components";
 
 import style from "./PageLayout.module.css";
 
@@ -18,7 +17,11 @@ function PageLayout({ children, title = "Home" }: Props) {
     <Provider store={store}>
       <div className={style.pageLayout}>
         <Head>
-          <title>{`${title} / EcommerceTemp`}</title>
+          <title>{title}</title>
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
         </Head>
         <Header />
         <ProductsContextProvider>
