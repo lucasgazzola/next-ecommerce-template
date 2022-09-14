@@ -1,5 +1,10 @@
-import NavLinksContainer from "components/NavLinksContainer";
+import dynamic from "next/dynamic";
+
 import style from "./MenuContainer.module.css";
+
+const NavLinksContainer = dynamic(import("components/NavLinksContainer"), {
+  loading: () => <p>Loading options...</p>
+});
 
 type Props = { handleCloseMenu: Function; openMenu: boolean };
 

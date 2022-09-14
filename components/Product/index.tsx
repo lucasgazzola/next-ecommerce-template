@@ -1,10 +1,17 @@
-import { ProductInterface } from "interfaces";
 import Image from "next/image";
 import Link from "next/link";
+
+import { useEffect } from "react";
+
+import { ProductInterface } from "interfaces";
 
 import style from "./Product.module.css";
 
 function Product({ id, image, price, rating, title }: ProductInterface) {
+  useEffect(() => {
+    console.log("product rendered");
+  }, []);
+
   return (
     <li className={style.linkContainer}>
       <Link href={`products/${id.toString()}`}>
@@ -14,16 +21,16 @@ function Product({ id, image, price, rating, title }: ProductInterface) {
           </header>
           <div className={style.imageContainer}>
             <Image
-              priority
+              loading="lazy"
               alt={title}
-              src={image}
+              src={"https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg"}
               layout="fill"
               objectFit="contain"
             />
           </div>
           <footer>
             <p className={style.descriptionContainer}>
-              ${price} - {rating.rate}⭐
+              ${price} - {rating}⭐
             </p>
           </footer>
         </a>

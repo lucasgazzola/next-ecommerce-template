@@ -1,10 +1,12 @@
+import dynamic from "next/dynamic";
 import { useState } from "react";
-
 import { AiOutlineMenu } from "react-icons/ai";
 
-import { MenuContainer } from "components";
-
 import style from "./HamburgerMenu.module.css";
+
+const MenuContainer = dynamic(() => import("components/MenuContainer"), {
+  loading: () => <p>Cargando menu...</p>
+});
 
 type Props = {};
 
