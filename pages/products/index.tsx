@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { ProductInterface } from "interfaces";
 
 import data from "db.json";
+import { PageLayout } from "layouts";
 
 const ProductsList = dynamic(() => import("components/ProductsList"), {
   loading: () => (
@@ -18,7 +19,7 @@ type ProductsPageProps = {
   // products: Array<ProductInterface>;
 };
 
-const Products: NextPage<ProductsPageProps> = ({}: ProductsPageProps) => {
+const Products = ({}: ProductsPageProps) => {
   const { products }: { products: Array<ProductInterface> } = data;
 
   return (
@@ -36,5 +37,7 @@ const Products: NextPage<ProductsPageProps> = ({}: ProductsPageProps) => {
 //     }
 //   };
 // }
+
+Products.layout = PageLayout;
 
 export default Products;

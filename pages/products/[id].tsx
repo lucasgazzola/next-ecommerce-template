@@ -1,33 +1,34 @@
-import { GetStaticProps, GetStaticPropsContext, NextPage } from "next";
-import Link from "next/link";
+import { GetStaticProps, GetStaticPropsContext } from "next";
 import Image from "next/image";
-
-import { IoMdArrowBack } from "react-icons/io";
-import { GrPrevious, GrNext } from "react-icons/gr";
+import dynamic from "next/dynamic";
 
 import { ProductInterface } from "interfaces";
 
 import style from "styles/[id].module.css";
+import { PageLayout } from "layouts";
+import { GoBackLink } from "components";
 
 import data from "db.json";
+
+const PreviousOrNextProductButtons = dynamic(
+  () => import("components/PreviousOrNextProductButtons"),
+  { loading: () => <p>Loading...</p> }
+);
 
 type Props = {
   product: ProductInterface;
   total: number;
 };
 
-const Product: NextPage<Props> = ({ product, total }: Props) => {
+const Product = ({ product, total }: Props) => {
   const { title, image, rating, price, description } = product;
+
+  const hasNext = product.id < total;
+  const hasPrevious = product.id > 1;
+
   return (
     <div className={style.singleProductPage}>
-      <Link href="/products">
-        <a>
-          <div className={style.backButtonContainer}>
-            <IoMdArrowBack size={24} />
-            <span className={style.textContainer}>BACK</span>
-          </div>
-        </a>
-      </Link>
+      <GoBackLink href="/products" />
       <div className={style.productContainer}>
         <header className={style.productContainer}>
           <span className={style.productTitle}>{title}</span>
@@ -56,27 +57,17 @@ const Product: NextPage<Props> = ({ product, total }: Props) => {
           </p>
         </footer>
       </div>
-      <div className={style.navigationContainer}>
-        {product.id > 1 && (
-          <Link href={`${product.id - 1}`}>
-            <a className={style.prevNextButtons}>
-              <GrPrevious />
-              <span>Previous</span>
-            </a>
-          </Link>
-        )}
-        {product.id < total && (
-          <Link href={`${product.id + 1}`}>
-            <a className={style.prevNextButtons}>
-              <span>Next</span>
-              <GrNext />
-            </a>
-          </Link>
-        )}
-      </div>
+      <PreviousOrNextProductButtons
+        productId={product.id}
+        hasNext={hasNext}
+        hasPrevious={hasPrevious}
+      />
     </div>
   );
 };
+
+Product.layout = PageLayout;
+// Product.subLayout = UniqueProductLayout;
 
 export async function getStaticPaths() {
   // const response = await fetch("db.json");
