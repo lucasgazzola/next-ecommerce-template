@@ -1,19 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { useEffect } from "react";
-
 import { ProductInterface } from "interfaces";
 
 import style from "./Product.module.css";
+import { memo } from "react";
 
 function Product({ id, image, price, rating, title }: ProductInterface) {
-  useEffect(() => {
-    console.log("product rendered");
-  }, []);
-
+  console.log("rendered product title: ", title);
   return (
-    <li className={style.linkContainer}>
+    <div className={style.linkContainer}>
       <Link href={`products/${id.toString()}`}>
         <a className={style.productContainer}>
           <header>
@@ -21,7 +17,7 @@ function Product({ id, image, price, rating, title }: ProductInterface) {
           </header>
           <div className={style.imageContainer}>
             <Image
-              loading="lazy"
+              priority
               alt={title}
               src={"https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg"}
               layout="fill"
@@ -35,8 +31,11 @@ function Product({ id, image, price, rating, title }: ProductInterface) {
           </footer>
         </a>
       </Link>
-    </li>
+    </div>
   );
 }
 
-export default Product;
+export default memo(
+  Product
+  // (prevProps: ProductInterface) => prevProps.title === title
+);
