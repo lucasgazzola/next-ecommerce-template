@@ -3,6 +3,7 @@ export default interface ProductInterface {
   title: string;
   price: number;
   description: string;
-  image?: Buffer[];
+  // TODO! Sacar string to type img
+  image?: string;
   rating: number;
 }
