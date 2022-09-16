@@ -7,7 +7,6 @@ import style from "./Product.module.css";
 import { memo } from "react";
 
 function Product({ id, image, price, rating, title }: ProductInterface) {
-  console.log("rendered product title: ", title);
   return (
     <div className={style.linkContainer}>
       <Link href={`products/${id.toString()}`}>
@@ -35,7 +34,8 @@ function Product({ id, image, price, rating, title }: ProductInterface) {
   );
 }
 
-export default memo(
-  Product
-  // (prevProps: ProductInterface) => prevProps.title === title
-);
+function areEqual(prevProps: ProductInterface, nextProps: ProductInterface) {
+  return prevProps.title === nextProps.title;
+}
+
+export default memo(Product, areEqual);
