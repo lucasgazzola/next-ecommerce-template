@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import { PageLayout } from "layouts";
 
 // TODO!  https://angloitalian.com/pages/about for reference
 
@@ -22,7 +22,7 @@ import type { NextPage } from "next";
 
 import style from "styles/Home.module.css";
 
-const Home: NextPage = () => {
+const Home = () => {
   return (
     <section id="home-section" className={style.home}>
       <h2>Home section</h2>
@@ -45,5 +45,7 @@ const Home: NextPage = () => {
     </section>
   );
 };
+
+Home.layout = PageLayout;
 
 export default Home;

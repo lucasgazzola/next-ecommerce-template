@@ -1,7 +1,9 @@
-import { NextPage } from "next";
+import { PageLayout } from "layouts";
 
-const Contact: NextPage = () => {
+const Contact = () => {
   return <h1>Contact</h1>;
 };
+
+Contact.layout = PageLayout;
 
 export default Contact;

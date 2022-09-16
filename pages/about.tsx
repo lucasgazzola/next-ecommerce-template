@@ -1,7 +1,9 @@
-import { NextPage } from "next";
+import { PageLayout } from "layouts";
 
-const About: NextPage = () => {
+const About = () => {
   return <h1>About</h1>;
 };
+
+About.layout = PageLayout;
 
 export default About;
