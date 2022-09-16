@@ -1,10 +1,7 @@
 // import { AdminPageLayout } from "layouts";
 import Link from "next/link";
-import { NextPageWithLayout } from "pages/_app";
-import { PageLayout } from "layouts";
-import type { ReactElement } from "react";
 
-const Admin: NextPageWithLayout = () => {
+const Admin = () => {
   return (
     // <AdminPageLayout title="Home">
     <>
@@ -59,8 +56,8 @@ const Admin: NextPageWithLayout = () => {
   );
 };
 
-Admin.getLayout = function getLayout(page: ReactElement) {
-  return <PageLayout title="Admin">{page}</PageLayout>;
-};
+// Admin.getLayout = function getLayout(page: ReactElement) {
+//   return <PageLayout title="Admin">{page}</PageLayout>;
+// };
 
 export default Admin;
