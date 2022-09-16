@@ -9,6 +9,7 @@ import NavLinksContainer from "./NavLinksContainer";
 import HamburgerMenu from "./HamburgerMenu";
 import MenuContainer from "./MenuContainer";
 import RenderIfVisible from "./RenderIfVisible";
+import GoBackLink from "./GoBackLink";
 
 export {
   Footer,
@@ -21,5 +22,6 @@ export {
   NavLinksContainer,
   HamburgerMenu,
   MenuContainer,
-  RenderIfVisible
+  RenderIfVisible,
+  GoBackLink
 };
