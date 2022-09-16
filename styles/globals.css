@@ -38,8 +38,8 @@ li {
   }
 
   body {
-    color: white;
-    background: black;
+    color: #fff;
+    background: #000;
   }
 }
 
@@ -49,7 +49,7 @@ li {
   }
 
   body {
-    color: black;
-    background: white;
+    color: #000;
+    background: #fff;
   }
 }
