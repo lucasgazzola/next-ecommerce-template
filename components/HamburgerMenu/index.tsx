@@ -26,7 +26,9 @@ function HamburgerMenu({}: Props) {
       <div onClick={handleTogleOpenMenu} className={style.menuButtonContainer}>
         <AiOutlineMenu size={32} />
       </div>
-      <MenuContainer openMenu={openMenu} handleCloseMenu={handleCloseMenu} />
+      {openMenu && (
+        <MenuContainer openMenu={openMenu} handleCloseMenu={handleCloseMenu} />
+      )}
     </>
   );
 }

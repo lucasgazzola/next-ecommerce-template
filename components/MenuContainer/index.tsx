@@ -32,17 +32,18 @@ type Props = { handleCloseMenu: Function; openMenu: boolean };
 // ];
 
 function MenuContainer({ handleCloseMenu, openMenu }: Props) {
+  const { menu, menuOpen, menuClosed } = style;
+  const openMenuStyle = `${menu} ${menuOpen}`;
+  const closedMenuStyle = `${menu} ${menuClosed}`;
   return (
     <>
-      <div className={openMenu ? style.menuOpen : style.menuClosed}>
-        {openMenu && (
-          <ul
-            onClick={() => handleCloseMenu()}
-            className={style.navLinksContainer}
-          >
-            <NavLinksContainer />
-          </ul>
-        )}
+      <div className={openMenu ? openMenuStyle : closedMenuStyle}>
+        <ul
+          onClick={() => handleCloseMenu()}
+          className={style.navLinksContainer}
+        >
+          <NavLinksContainer />
+        </ul>
       </div>
     </>
   );

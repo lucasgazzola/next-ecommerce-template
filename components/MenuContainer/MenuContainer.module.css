@@ -11,38 +11,37 @@
 .linkItemContainer {
 }
 
-.menuOpen {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
+.menu {
   top: 5rem;
   right: 0;
+  position: absolute;
   background-color: #212121;
-  transition: openMenu 1s ease;
-  animation: openMenu 0.2s;
+  animation: openMenu 0.1s;
 }
 
 .menuClosed {
-  position: absolute;
   width: 0;
-  transition: closeMenu 1s ease;
-  animation: closeMenu 0.2s;
+}
+
+.menuOpen {
+  width: 100vw;
+  height: 100vh;
 }
 
 @keyframes openMenu {
-  from {
+  0% {
     width: 0;
   }
-  to {
+  100% {
     width: 100vw;
   }
 }
 
 @keyframes closeMenu {
-  from {
+  0% {
     width: 100vw;
   }
-  to {
+  100% {
     width: 0;
   }
 }
