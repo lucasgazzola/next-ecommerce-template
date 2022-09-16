@@ -8,6 +8,7 @@ import LoginButton from "./LoginButton";
 import NavLinksContainer from "./NavLinksContainer";
 import HamburgerMenu from "./HamburgerMenu";
 import MenuContainer from "./MenuContainer";
+import RenderIfVisible from "./RenderIfVisible";
 
 export {
   Footer,
@@ -19,5 +20,6 @@ export {
   Navbar,
   NavLinksContainer,
   HamburgerMenu,
-  MenuContainer
+  MenuContainer,
+  RenderIfVisible
 };
