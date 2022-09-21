@@ -1,0 +1,64 @@
+.addProductForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.formGroupContainer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.formGroupContainer > label {
+  width: 8rem;
+  text-align: end;
+  font-size: 18px;
+}
+
+.addProductTitle {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.formGroupContainer > :is(textarea) {
+  resize: none;
+}
+
+.formGroupContainer > :is(input, textarea) {
+  width: 20rem;
+  border: none;
+  background-color: #ddd;
+  border-radius: 4px;
+  outline: none;
+  padding: 8px 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #111;
+}
+
+.buttonSubmit {
+  padding: 0.8rem 1rem;
+  width: max-content;
+  border-radius: 4px;
+  background-color: #4a4;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.1s ease;
+}
+
+.buttonSubmit:hover {
+  background-color: #070;
+  color: #ddd;
+}
+
+.buttonSubmit:active {
+  transform: scale(0.98);
+}
