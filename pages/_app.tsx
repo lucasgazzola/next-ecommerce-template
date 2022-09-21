@@ -22,14 +22,9 @@ function MyApp({ Component, pageProps }: AppLayoutProps) {
   const Layout =
     Component.layout || ((children: ReactElement) => <>{children}</>);
 
-  // const SubLayout =
-  //   Component.subLayout && ((children: ReactElement) => <>{children}</>);
-
   return (
     <Layout>
-      {/* <SubLayout> */}
       <Component {...pageProps} />
-      {/* </SubLayout> */}
     </Layout>
   );
 }

@@ -67,7 +67,6 @@ const Product = ({ product, total }: Props) => {
 };
 
 Product.layout = PageLayout;
-// Product.subLayout = UniqueProductLayout;
 
 export async function getStaticPaths() {
   // const response = await fetch("db.json");
