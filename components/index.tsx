@@ -11,6 +11,7 @@ import MenuContainer from "./MenuContainer";
 import RenderIfVisible from "./RenderIfVisible";
 import GoBackLink from "./GoBackLink";
 import ProductsFilter from "./ProductsFilter";
+import AdminNavbar from "./AdminNavbar";
 
 export {
   Footer,
@@ -25,5 +26,6 @@ export {
   MenuContainer,
   RenderIfVisible,
   GoBackLink,
-  ProductsFilter
+  ProductsFilter,
+  AdminNavbar
 };
