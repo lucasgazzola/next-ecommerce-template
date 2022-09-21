@@ -10,6 +10,7 @@ import HamburgerMenu from "./HamburgerMenu";
 import MenuContainer from "./MenuContainer";
 import RenderIfVisible from "./RenderIfVisible";
 import GoBackLink from "./GoBackLink";
+import ProductsFilter from "./ProductsFilter";
 
 export {
   Footer,
@@ -23,5 +24,6 @@ export {
   HamburgerMenu,
   MenuContainer,
   RenderIfVisible,
-  GoBackLink
+  GoBackLink,
+  ProductsFilter
 };

@@ -1,33 +1,29 @@
 import dynamic from "next/dynamic";
 
 import { ProductInterface } from "interfaces";
+import { RenderIfVisible, ProductsFilter } from "components";
+import { useProductsContext } from "context/Products";
 
 import style from "./ProductList.module.css";
-import { RenderIfVisible } from "components";
-// const RenderIfVisible = dynamic(() => import("components/RenderIfVisible"));
+
 const Product = dynamic(() => import("components/Product"));
-// const Product = dynamic(() => import("components/Product"), {
-//   loading: () => (
-//     <li>
-//       <p>Cargando producto...</p>
-//     </li>
-//   )
-// });
 
-type Props = {
-  products: Array<ProductInterface>;
-};
+type Props = {};
 
-function ProductsList({ products }: Props) {
+function ProductsList({}: Props) {
+  const { filteredProducts } = useProductsContext();
   return (
-    <ul className={style.productsListContainer}>
-      {products &&
-        products.map((product: ProductInterface) => (
-          <RenderIfVisible key={product.id}>
-            <Product {...product} />
-          </RenderIfVisible>
-        ))}
-    </ul>
+    <>
+      <ProductsFilter />
+      <ul className={style.productsListContainer}>
+        {filteredProducts &&
+          filteredProducts.map((product: ProductInterface) => (
+            <RenderIfVisible key={product.id}>
+              <Product {...product} />
+            </RenderIfVisible>
+          ))}
+      </ul>
+    </>
   );
 }
 

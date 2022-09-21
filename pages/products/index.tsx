@@ -1,10 +1,7 @@
-import type { NextPage } from "next";
 import dynamic from "next/dynamic";
 
 // import {  } from "components";
-import { ProductInterface } from "interfaces";
 
-import data from "db.json";
 import { PageLayout } from "layouts";
 
 const ProductsList = dynamic(() => import("components/ProductsList"), {
@@ -20,11 +17,11 @@ type ProductsPageProps = {
 };
 
 const Products = ({}: ProductsPageProps) => {
-  const { products }: { products: Array<ProductInterface> } = data;
+  // const { products }: { products: Array<ProductInterface> } = data;
 
   return (
     <section id="products-section">
-      <ProductsList products={products} />
+      <ProductsList />
     </section>
   );
 };

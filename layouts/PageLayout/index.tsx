@@ -9,11 +9,6 @@ import { Header, Footer } from "components";
 
 import style from "./PageLayout.module.css";
 
-// type Props = {
-//   children: React.ReactNode;
-//   title: string;
-// };
-
 const PageLayout: LayoutProps = ({ children }) => {
   return (
     <Provider store={store}>

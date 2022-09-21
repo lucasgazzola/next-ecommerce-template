@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 
+import style from "./RenderIfVisible.module.css";
+
 const isServer = typeof window === "undefined";
 
 type Props = {
@@ -17,7 +19,7 @@ const RenderIfVisible: React.FC<Props> = ({
 }) => {
   const [isVisible, setIsVisible] = useState<boolean>(isServer);
   const placeholderHeight = useRef<number>(defaultHeight);
-  const intersectionRef = useRef<HTMLDivElement>(null);
+  const intersectionRef = useRef<HTMLLIElement>(null);
 
   // Set visibility with intersection observer
   useEffect(() => {
@@ -55,13 +57,13 @@ const RenderIfVisible: React.FC<Props> = ({
   }, [isVisible, intersectionRef]);
 
   return (
-    <div ref={intersectionRef}>
+    <li className={style.productListItem} ref={intersectionRef}>
       {isVisible ? (
         children
       ) : (
         <div style={{ height: placeholderHeight.current }} />
       )}
-    </div>
+    </li>
   );
 };
 
