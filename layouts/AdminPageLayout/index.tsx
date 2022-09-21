@@ -1,4 +1,6 @@
 import Head from "next/head";
+
+import { AdminNavbar } from "components";
 import type { LayoutProps } from "types/pageWithLayouts";
 
 import style from "./AdminPageLayout.module.css";
@@ -9,7 +11,10 @@ const AdminPageLayout: LayoutProps = ({ children }) => {
       <Head>
         <title>Admin</title>
       </Head>
-      <main className={style.mainContent}>{children}</main>
+      <main className={style.mainContent}>
+        <AdminNavbar />
+        <section className={style.adminPageContent}>{children}</section>
+      </main>
       <footer></footer>
     </div>
   );

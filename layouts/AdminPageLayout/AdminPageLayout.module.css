@@ -1,0 +1,13 @@
+.mainContent {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.mainContent > :is(section, nav) {
+  padding: 1.5rem;
+}
+
+.adminPageContent {
+  padding: 1rem;
+  width: 100vh;
+}
